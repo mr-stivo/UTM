@@ -81,7 +81,7 @@ jobs:
         run: |
           echo "/usr/local/opt/bison/bin:/opt/homebrew/opt/bison/bin" >> $GITHUB_PATH
       - name: Install Requirements
-        if: (steps.cache-sysroot.outputs.cache-hit != 'true' || 1) && needs.configuration.outputs.runner == env.RUNNER_IMAGE
+        shell: bash
         #if: (steps.cache-sysroot.outputs.cache-hit != 'true' || github.event.inputs.rebuild_sysroot == 'true') && needs.configuration.outputs.runner == env.RUNNER_IMAGE
         run: |
           brew uninstall cmake
